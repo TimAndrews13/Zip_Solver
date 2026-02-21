@@ -1,4 +1,5 @@
-from grid import zip_solver, StartEnd, print_grid, print_grid_with_solution
+from zip_solve import zip_solver
+from grid import print_grid, print_grid_with_solution
 
 
 def main():

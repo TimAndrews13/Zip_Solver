@@ -1,6 +1,6 @@
 import unittest
 
-from grid import zip_solver
+from zip_solve import zip_solver
 
 class TestZipSolve(unittest.TestCase):
     def test_ZipPuzzle1(self):
