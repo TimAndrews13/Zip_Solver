@@ -1,4 +1,4 @@
-from grid import zip_solver, StartEnd
+from grid import zip_solver, StartEnd, print_grid, print_grid_with_solution
 
 
 def main():
@@ -11,7 +11,6 @@ def main():
         [None, None, None, None, 4, 1, None],
         [None, None, None, None, None, None, None]
     ]
-
     barriers = [
         {(0, 4), (1, 4)},
         {(0, 5), (1, 5)},
@@ -27,9 +26,11 @@ def main():
         {(5, 2), (6, 2)},
     ]
 
+    print_grid(zipboard, barriers)
+
     result = zip_solver(zipboard, barriers)
 
-    print(result)
+    print_grid_with_solution(zipboard, barriers, result)
 
 if __name__ == "__main__":
     main()
