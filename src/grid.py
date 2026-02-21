@@ -1,4 +1,5 @@
 import copy
+from pprint import pprint
 
 '''PsuedoCode for Zip Solver using backtracking
 1. Set the Starting Point to 1
@@ -40,7 +41,38 @@ def zip_solver(board, barriers):
     total_cells = height * width
     path = []
 
-    #print("Starting Backtracking")
+    #Helper Funciton to Print Grid Evenly
+    def print_grid_with_barriers(board, barriers):
+        rows = len(board)
+        cols = len(board[0] if rows > 0 else 0)
+
+        CELL_W = 4
+        WALL_W = 3
+
+        for r in range(rows):
+            row_str = ""
+            for c in range(cols):
+                val = str(board[r][c] if board[r][c] is not None else 0)
+                row_str += val.center(CELL_W)
+
+                if c < cols - 1:
+                    if {(r,c), (r, c + 1)} in barriers:
+                        row_str += "|".center(WALL_W)
+                    else:
+                        row_str += " ".center(WALL_W)
+            print(row_str)
+
+            if r < rows -1:
+                divider_str = ""
+                for c in range(cols):
+                    if {(r,c), (r + 1, c)} in barriers:
+                        divider_str += "---".center(CELL_W)
+                    else:
+                        divider_str += " ".center(CELL_W)
+                    divider_str += " ".center(WALL_W)
+                print(divider_str)
+
+    print_grid_with_barriers(board, barriers)
     
     def backtrack_function(current_number, current_position, current_path):
         '''
@@ -124,3 +156,28 @@ def zip_solver(board, barriers):
     return backtrack_function(1, start, [start])
      
 
+zipboard = [
+        [None, None, None, None, None, None, None],
+        [None, 10, 9, None, None, None, None],
+        [None, None, 7, None, None, None, None],
+        [None, 8, 3, None, 6, 5, None],
+        [None, None, None, None, 2, None, None],
+        [None, None, None, None, 4, 1, None],
+        [None, None, None, None, None, None, None]
+    ]
+barriers = [
+        {(0, 4), (1, 4)},
+        {(0, 5), (1, 5)},
+        {(1, 3), (1, 4)},
+        {(1, 5), (2, 5)},
+        {(2, 3), (2, 4)},
+        {(2, 4), (2, 5)},
+        {(4, 1), (4, 2)},
+        {(4, 2), (4, 3)},
+        {(4, 1), (5, 1)},
+        {(5, 1), (6, 1)},
+        {(5, 2), (5, 3)},
+        {(5, 2), (6, 2)},
+    ]
+
+zip_solver(zipboard, barriers)
