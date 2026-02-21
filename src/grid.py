@@ -1,35 +1,5 @@
 import copy
 
-
-zipArray = [
-    [None, None, None, None, None, None, None],
-    [None, 10, 9, None, None, None, None],
-    [None, None, 7, None, None, None, None],
-    [None, 8, 3, None, 6, 5, None],
-    [None, None, None, None, 2, None, None],
-    [None, None, None, None, 4, 1, None],
-    [None, None, None, None, None, None, None]
-]
-
-barriers = [
-    {(0, 4), (1, 4)},
-    {(0, 5), (1, 5)},
-    {(1, 3), (1, 4)},
-    {(1, 5), (2, 5)},
-    {(2, 3), (2, 4)},
-    {(2, 4), (2, 5)},
-    {(4, 1), (4, 2)},
-    {(4, 2), (4, 3)},
-    {(4, 1), (5, 1)},
-    {(5, 1), (6, 1)},
-    {(5, 2), (5, 3)},
-    {(5, 2), (6, 2)},
-]
-
-
-
-
-
 '''PsuedoCode for Zip Solver using backtracking
 1. Set the Starting Point to 1
 2. Make sure the neighbors of 1 do not validate path constraints
@@ -81,7 +51,7 @@ def zip_solver(board, barriers):
         if current_position == end:
             if len(current_path) == total_cells:
                 path.append(current_path.copy())
-                print(f"Full Path Complete {path}")
+                print(f"Full Path Complete")
                 return current_path.copy()
 
         '''
@@ -151,6 +121,6 @@ def zip_solver(board, barriers):
                         return result
         return None
 
-    backtrack_function(1, start, [start])
-    return 
+    return backtrack_function(1, start, [start])
+     
 
