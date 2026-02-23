@@ -97,23 +97,8 @@ def zip_solver(board, barriers):
                     Fourth Check to see if New Location has a Number... 
                     '''
                     if board[new_x][new_y] is not None:
-
-                        #print(f"New Location {new_location} has Number...")
-                        '''
-                        ...and if it does if that Number is 1 more than the Current Number
-                        '''
                         if board[new_x][new_y] != current_number + 1:
-                            continue
-
-                            #print(f"New Location has Number {current_number + 1} The next Number!")
-                            #print(f"Adding {new_location} to {current_path}")
-                            #print(f"Path is now {current_path + new_path}")
-                            '''
-                            If the New Location has the Next Number, We can recursively call the function on the Next Number (Current Number + 1), the New Location, and then the Current Path + New Path (New Location as a List)
-                            '''
-
-                            #print(f"Recursively calling backtrack_function on New Number {current_number}, New Location {new_location}, and New Path {current_path + new_path}")
-
+                            continue                          # ← was outside this block before
                         result = backtrack_function(current_number + 1, new_location, current_path + [new_location])
                     elif board[new_x][new_y] is None:
                         result = backtrack_function(current_number, new_location, current_path + [new_location])

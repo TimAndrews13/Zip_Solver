@@ -1,31 +1,12 @@
 from zip_solve import zip_solver
 from grid import print_grid, print_grid_with_solution
+from image_extraction import extract_puzzle
 
 
 def main():
-    zipboard = [
-        [None, None, None, None, None, None, None],
-        [None, 3, None, 2, None, 1, None],
-        [None, None, None, None, 6, None, None],
-        [None, 5, None, None, None, 7, None],
-        [None, None, 4, None, None, None, None],
-        [None, 9, None, 10, None, 8, None],
-        [None, None, None, None, None, None, None]
-    ]
-    barriers = [
-        {(1, 1), (2, 1)},
-        {(1, 3), (2, 3)},
-        {(1, 5), (2, 5)},
-        {(1, 6), (2, 6)},
-        {(2, 3), (3, 3)},
-        {(2, 5), (3, 5)},
-        {(3, 1), (4, 1)},
-        {(3, 3), (4, 3)},
-        {(4, 0), (5, 0)},
-        {(4, 1), (5, 1)},
-        {(4, 3), (5, 3)},
-        {(4, 5), (5, 5)},
-    ]
+    zipboard, barriers, N = extract_puzzle("/home/tim_andrews/workspace/timandrews/Zip_Solver/src/test_image2.png")
+
+    zipboard = [[int(v) if v != 0 else None for v in row] for row in zipboard]
 
     print_grid(zipboard, barriers)
 

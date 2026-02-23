@@ -1,1 +1,5 @@
 __pycache__/
+/bin
+.venv
+uv.lock
+debug_cell*

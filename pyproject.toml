@@ -1,0 +1,13 @@
+[project]
+name = "zip-solver"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "argparse>=1.4.0",
+    "imutils>=0.5.4",
+    "numpy>=2.4.2",
+    "opencv-python>=4.13.0.92",
+    "pytesseract>=0.3.13",
+    "scikit-image>=0.26.0",
+    "tensorflow>=2.20.0",
+]
