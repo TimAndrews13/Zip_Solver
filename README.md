@@ -1,8 +1,8 @@
 # Zip Solver
 
-For my first python project through the [boot.dev](https://www.boot.dev)Back-End Developer Path, I wanted to figure out a programatic way to solve the [LinkedIn Zip puzzle](https://www.linkedin.com/games/zip/).  A couple years back, LinkedIn started publishing daily puzzles that my fiance and I love to complete and compete against each other.  I think this might give me a leg up!
+For my first python project through the [boot.dev](https://www.boot.dev) Back-End Developer Path, I wanted to figure out a programatic way to solve the [LinkedIn Zip puzzle](https://www.linkedin.com/games/zip/).  A couple years back, LinkedIn started publishing daily puzzles that my fiance and I love to complete and compete against each other.  I think this might give me a leg up!
 
-When fed a screenshot of the puzzle, this pipeline will detect the game grid, read the numbered cells, identify the barriers tha cannot be passed, and figure out the solution path using a backtracking algorithm.
+When fed a screenshot of the puzzle, this pipeline will detect the game grid, read the numbered cells, identify the barriers that cannot be passed, and figure out the solution path using a backtracking algorithm.
 
 ---
 
@@ -11,7 +11,18 @@ When fed a screenshot of the puzzle, this pipeline will detect the game grid, re
 1. **Grid detection** — finds and perspective-corrects the puzzle grid using OpenCV contour detection
 2. **Number extraction** — reads each numbered cell using Tesseract OCR
 3. **Barrier detection** — identifies thick wall segments between cells by measuring dark pixel density along cell edges
-4. **Solving** — uses backtracking to find a valid path that visits every cell on the board, and visits the numbered cells in order
+4. **Solving** — uses backtracking to find a valid Hamiltonian path that visits every cell on the board, and visits the numbered cells in order
+
+---
+
+## Future Updates
+
+There are a few future updates that I would like to make to this repo.  Feel free to clone this repo and push create commits if you think you are up for the challenge to add and implement any of these future enhancements.
+
+1. **Image Screenshots From LinkedIn** - Take a screenshot from [LinkedIn Zip puzzle](https://www.linkedin.com/games/zip/) to generate the image automatically
+2. **Any Zip Puzzle from Any Source** - Update functions in image_extraction.py to support puzzle images from any source, not just [LinkedIn Zip puzzle](https://www.linkedin.com/games/zip/)
+3. **Cell Color Recognition** - Update image_extraction.py to support non-black and white color extaction
+4. **Cleaner Grid Print to Command Line Output** - Update grid.py to print the Grid Cleaner.  Options include printing the grid lines and printing the actual solve pad instead of the indicies visited.
 
 ---
 
@@ -112,14 +123,15 @@ Zips Puzzle Completed
 ```
 Zip_Solver/
 ├── src/
-│   ├── main.py               # Entry point — runs full pipeline
-│   ├── image_extraction.py   # CV pipeline: grid detection, OCR, barrier detection
-│   ├── zip_solve.py          # Backtracking solver
-│   └── grid.py               # Grid printing utilities
+│   ├── main.py                     # Entry point — runs full pipeline
+│   ├── image_extraction.py         # CV pipeline: grid detection, OCR, barrier detection
+│   ├── zip_solve.py                # Backtracking solver
+│   └── grid.py                     # Grid printing utilities
 ├── tests/
-│   ├── images/               # Sample puzzle images
-│   └── test_zip_solve.py     # Solver unit tests
-├── main.sh                   # Shell script shortcut
+│   ├── images/                     # Sample puzzle images
+│   ├── test_image_extraction.py    # Image Extraction and Solver unit tests
+│   └── test_zip_solve.py           # Solver unit tests
+├── main.sh                         # Shell script shortcut
 ├── pyproject.toml
 └── README.md
 ```
