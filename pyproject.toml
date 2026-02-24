@@ -11,3 +11,14 @@ dependencies = [
     "scikit-image>=0.26.0",
     "tensorflow>=2.20.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[project.scripts]
+zip-solver = "main:main"
