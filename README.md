@@ -17,7 +17,7 @@ When fed a screenshot of the puzzle, this pipeline will detect the game grid, re
 
 ## Future Updates
 
-There are a few future updates that I would like to make to this repo.  Feel free to clone this repo and push create commits if you think you are up for the challenge to add and implement any of these future enhancements.
+There are a few future updates that I would like to make to this repo.  Feel free to clone this repo and push commits if you think you are up for the challenge to add and implement any of these future enhancements.  I am open to other enhancements as well!
 
 1. **Image Screenshots From LinkedIn** - Take a screenshot from [LinkedIn Zip puzzle](https://www.linkedin.com/games/zip/) to generate the image automatically
 2. **Any Zip Puzzle from Any Source** - Update functions in image_extraction.py to support puzzle images from any source, not just [LinkedIn Zip puzzle](https://www.linkedin.com/games/zip/)
